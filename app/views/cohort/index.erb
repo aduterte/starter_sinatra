@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+    <header>
+        <title> Cohort Main Page</title>
+    </header>
+
+    <body>  
+
+    <ol>
+        <h1> All the Cohorts </h1>
+
+        <% @cohort.each do |c|%>
+            <li> <%= c.name %> </li>
+        <% end%>
+
+    </ol>
+
+    </body>
+
+</html>

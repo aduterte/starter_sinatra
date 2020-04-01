@@ -1,0 +1,15 @@
+<h1 style="color:red;">All of the Students</h1>
+<ol>
+<% @students.each do |student|%>
+
+
+      <li><a href="/students/<%= student.id%>">
+    <%= student.name %></li>
+      <%end%>
+  </ol>
+
+
+<a href= "/students/new">Create Student</a>
+
+  
+  

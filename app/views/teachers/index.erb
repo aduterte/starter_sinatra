@@ -1,0 +1,7 @@
+<div style="background-color: #4d4d56; width: 150px"> <span style="font-color: blue; font-style: bold;">//</span> <span style="font-color: white; font-family: sans-serif;">Teachers</span></div>
+
+<ul>
+<% @teachers.each do |teacher| %>
+    <li><a href="/teachers/<%= teacher.id%>"><%= teacher.name%></a></li>
+<% end %>
+</ul>

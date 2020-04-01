@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="background-color: ; width: 800px"><img src="/images/logo.jpg" style="width: 150px"></div>
+
+<h1 style = "background-color: powderblue;">Student Detail Page</h1>
+
+<h2><%= @student.name %></h2>
+
+<% @cohort[0].each do |cohort| %>
+    <h3> <%= cohort.teacher.subject %> </h3>
+<% end %>
+
+<div style="padding: 5px">
+    <a href="/students">Back To Main Page</a>
+</div>
+
+<div style="padding: 5px">
+    <a href="/students/<%= @student.id%>/edit">Edit Name</a>
+</div>
+
+<div style="padding: 5px">
+    <form action="/students/<%= @student.id %>" method= "POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Dropout of Cohort">
+    </form>
+</div>
+
+<div style="padding: 5px">
+    <a href="/cohorts/new">Add Cohort</a>
+</div>

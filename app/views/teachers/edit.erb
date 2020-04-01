@@ -1,0 +1,6 @@
+<form action="/teachers/<%= @teacher.id%>" method ="post">
+<input type="hidden" name="_method" value="patch">
+<p>Enter Teacher Name:
+<p><input type="text" name="name" value="<%= @teacher.name %>">
+<p><input type="submit" value="Edit">
+</form>
