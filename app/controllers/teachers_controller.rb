@@ -14,7 +14,7 @@ class TeachersController < Sinatra::Base
     end
 
     post '/teachers' do
-        @teacher = Teacher.create(name: params[:name])
+        @teacher = Teacher.create(params[:new])
         redirect "/teachers/#{@teacher.id}"
     end
 
@@ -25,13 +25,13 @@ class TeachersController < Sinatra::Base
 
     get '/teachers/:id/edit' do 
         @teacher = Teacher.find(params[:id])
-        erb :"/teachers/edit"
+        erb :'/teachers/edit'
     end
 
     patch '/teachers/:id' do
         @teacher = Teacher.find(params[:id])
         # @teacher.name = params[:name]
-        @teacher.update(name: params[:name])
+        @teacher.update(params[:edit])
         redirect "/teachers/#{@teacher.id}"
     end
 

@@ -15,13 +15,18 @@ class StudentsController < Sinatra::Base
 
     post '/students' do
         student = Student.create(name: params[:name])
+        # binding.pry
+        if !params[:teacher][:id].empty?
+            params[:teacher][:id].each do |teacher|
+                Cohort.create(student_id: student.id, teacher_id: teacher.to_i)
+            end
+        end
         redirect "/students/#{student.id}"
     end
 
     get '/students/:id' do
         @student = Student.find(params[:id])
-        @cohort = []
-        @cohort << Cohort.where(student_id: @student.id)
+        #removed cohort thing because active records wasn't working before
         erb :'/students/show'
     end
 
@@ -33,7 +38,17 @@ class StudentsController < Sinatra::Base
     patch '/students/:id' do
         @student = Student.find(params[:id])
         # @student.name = params[:name]
-        @student.update(name: params[:name])
+        @student.update(params[:student])
+
+        if !params[:teacher][:id].empty?
+            params[:teacher][:id].each do |teacher_id|
+            # binding.pry
+                cohort = Cohort.where(student_id: @student.id, teacher_id: teacher_id.to_i)[0]
+                # binding.pry
+                Cohort.create(student_id: @student.id, teacher_id: teacher_id.to_i) if cohort == nil
+                
+            end
+        end
         redirect "/students/#{@student.id}"
     end
 

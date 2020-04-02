@@ -1,8 +1,18 @@
-<p><%= @teacher.name%>
+<div>
+<h1 style="color: 4d4d56; font-family: sans-serif"><span style="color: #00b5ec ">//</span> <span style="color: #4d4d56">Teacher Info</span></h1>
 
+<p><span style="font-family: sans-serif; font-size: 30px; color: #4d4d56"><%= @teacher.name%></span><span style="font-family: sans-serif; font-size: 20px; color: #00b5ec"> is teaching <%= @teacher.subject%></span>
+<p style="font-family: sans-serif; font-size: 20px; color: #4d4d56">Students in class
+<ul>
+<% @teacher.students.each do |student| %>
+<li><a href="/students/<%= student.id %>"><%= student.name %></a></li>
+<%end%>
+</ul>
+<p><a href="/teachers/<%= @teacher.id%>/edit">Edit This Teacher</a>
 <div style="padding: 5px">
     <form action="/teachers/<%= @teacher.id %>" method= "POST">
     <input type="hidden" name="_method" value="DELETE">
     <input type="submit" value="Quit Flatiron">
     </form>
+</div>
 </div>

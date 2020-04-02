@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_01_180339) do
+ActiveRecord::Schema.define(version: 2020_04_02_040343) do
 
   create_table "cohorts", force: :cascade do |t|
     t.integer "student_id"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2020_04_01_180339) do
 
   create_table "students", force: :cascade do |t|
     t.string "name"
-    t.string "img_url"
+    t.string "img_url", default: "https://avatars.githubusercontent.com/u/59492509"
   end
 
   create_table "teachers", force: :cascade do |t|

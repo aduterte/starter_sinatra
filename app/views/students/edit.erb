@@ -2,7 +2,13 @@
 
 <form action = "/students/<%= @student.id %>" method= "POST" >
     <input type="hidden" name="_method" value="PATCH" >
-    <label for="name">Name</label>
-    <input type="text" name="name" value="<%= @student.name %>">
-    <input type="submit" value= "Submit">
+    <label for="name">Name: </label>
+    <input type="text" name="student[name]" value="<%= @student.name %>">
+    <% Teacher.all.each do |teacher| %>
+    <p><input type="checkbox" id="<%=teacher.id %>" name="teacher[id][]" value="<%=teacher.id %>" <%= 'checked' if @student.teachers.include?(teacher)%>> <span style="font-size: 20px; font-family: sans-serif"> <%=teacher.subject %></span>  <span style="color: #00b5ec">with <%=teacher.name %></span>
+
+    <% end %>
+
+    <p>Image URL: <input type="text" name="studen[url]" value="<%= @student.img_url %>">
+    <p><input type="submit" value= "Submit">
 </form>

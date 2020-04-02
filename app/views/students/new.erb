@@ -7,7 +7,7 @@
     <input type="submit" name="Submit">
     
     <% Teacher.all.each do |teacher| %>
-    <p><input type="checkbox" id="<%=teacher.id %>" name="<%=teacher.id %>" value="test"> <span style="font-size: 20px"> <%=teacher.subject %></span>  <span style="color: #00b5ec">with <%=teacher.name %></span>
+    <p><input type="checkbox" id="<%=teacher.id %>" name="teacher[id][]" value="<%=teacher.id %>"> <span style="font-size: 20px; font-family: sans-serif"> <%=teacher.subject %></span>  <span style="color: #00b5ec">with <%=teacher.name %></span>
 
     <% end %>
     

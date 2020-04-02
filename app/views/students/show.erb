@@ -1,5 +1,5 @@
 
-<h1 style = "background-color: powderblue;">Student Detail Page</h1>
+<h1 style="color: 4d4d56; font-family: sans-serif"><span style="color: #00b5ec ">//</span> <span style="color: #4d4d56">Student Info</span></h1>
 <img src="<%= @student.img_url%>" style="width: 100px">
 <h2><%= @student.name %></h2>
 
@@ -18,7 +18,7 @@
 <div style="padding: 5px">
     <form action="/students/<%= @student.id %>" method= "POST">
     <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="Dropout of Cohort">
+    <input type="submit" value="Dropout of Flatiron">
     </form>
 </div>
 
