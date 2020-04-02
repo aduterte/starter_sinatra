@@ -1,15 +1,16 @@
 class TeachersController < Sinatra::Base 
 
-    set :views, "app/views/teachers"
+    set :views, "app/views"
+    set :layout, true
     set :method_override, true
 
     get '/teachers' do
         @teachers = Teacher.all
-        erb :index
+        erb :'/teachers/index'
     end
 
     get '/teachers/new' do
-       erb :new
+       erb :'/teachers/new'
     end
 
     post '/teachers' do
@@ -19,12 +20,12 @@ class TeachersController < Sinatra::Base
 
     get '/teachers/:id' do
         @teacher = Teacher.find(params[:id])
-        erb :show
+        erb :'/teachers/show'
     end
 
     get '/teachers/:id/edit' do 
         @teacher = Teacher.find(params[:id])
-        erb :edit
+        erb :"/teachers/edit"
     end
 
     patch '/teachers/:id' do

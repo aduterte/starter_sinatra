@@ -1,10 +1,15 @@
-<h1 style = "background-color: lightblue;"> Create a new Student</h1>
+<h1 style="color: 4d4d56; font-family: sans-serif"><span style="color: #00b5ec ">//</span> <span style="color: #4d4d56">Sign up for Flatiron School!</span></h1>
 
-
-<div style="background-color:Gray;">
+<div>
 <form action="/students" method="POST">
     <label for="name" style = "text-aligh: center;">Name : </label>
     <input type="text" name="name">
     <input type="submit" name="Submit">
+    
+    <% Teacher.all.each do |teacher| %>
+    <p><input type="checkbox" id="<%=teacher.id %>" name="<%=teacher.id %>" value="test"> <span style="font-size: 20px"> <%=teacher.subject %></span>  <span style="color: #00b5ec">with <%=teacher.name %></span>
+
+    <% end %>
+    
 </form>
 </div>

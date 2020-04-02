@@ -1,16 +1,16 @@
 class StudentsController < Sinatra::Base
 
-    set :views, "app/views/students"
+    set :views, "app/views"
     set :method_override, true
     set :layout => true
     
     get '/students' do 
         @students = Student.all
-        erb :index
+        erb :'/students/index'
     end
 
     get '/students/new' do 
-        erb :new
+        erb :'/students/new'
     end
 
     post '/students' do
@@ -22,12 +22,12 @@ class StudentsController < Sinatra::Base
         @student = Student.find(params[:id])
         @cohort = []
         @cohort << Cohort.where(student_id: @student.id)
-        erb :show
+        erb :'/students/show'
     end
 
     get '/students/:id/edit' do 
         @student = Student.find(params[:id])
-        erb :edit
+        erb :'/students/edit'
     end
 
     patch '/students/:id' do

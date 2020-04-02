@@ -1,0 +1,27 @@
+#about a:link {
+    text-decoration: none;
+color: white;
+}
+
+/* visited link */
+#about a:visited {
+    text-decoration: none;
+color: white;
+}
+
+/* mouse over link */
+#about a:hover {
+    text-decoration: none;
+color: rgb(67, 202, 255);
+}
+
+/* selected link */
+#about a:active {
+    text-decoration: none;
+color: white;
+}
+
+li.nav {
+    color: black;
+    display: inline;
+  }
