@@ -1,6 +1,5 @@
 class CohortsController < Sinatra::Base 
 
-
     set :views, "app/views/cohort"
     set :method_override, true
 

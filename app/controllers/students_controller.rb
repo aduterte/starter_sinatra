@@ -15,7 +15,7 @@ class StudentsController < Sinatra::Base
 
     post '/students' do
         student = Student.create(name: params[:name])
-        # binding.pry
+        binding.pry
         if !params[:teacher][:id].empty?
             params[:teacher][:id].each do |teacher|
                 Cohort.create(student_id: student.id, teacher_id: teacher.to_i)
@@ -38,6 +38,7 @@ class StudentsController < Sinatra::Base
     patch '/students/:id' do
         @student = Student.find(params[:id])
         # @student.name = params[:name]
+        # binding.pry
         @student.update(params[:student])
 
         if !params[:teacher][:id].empty?

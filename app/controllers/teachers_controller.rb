@@ -42,8 +42,4 @@ class TeachersController < Sinatra::Base
     end
     
 
-
-
-
-
 end
